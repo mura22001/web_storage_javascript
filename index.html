@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>web_storage</title>
+
+	<script>
+		window.addEventListener("load", function(){
+			var inputKey = document.getElementById("inputKey");
+			var inputValue = document.getElementById("inputValue");
+			var recBtn = document.getElementById("recBtn");
+			var disp = document.getElementById("disp");
+
+			recBtn.addEventListener("click", function(){
+
+				var iKey = inputKey.value;
+				var iVal = inputValue.value;
+
+				if(iKey=="" || iVal==""){
+					alert("キーと値のどちらかの値が空です");
+					return;
+				}
+				sessionStorage.setItem(iKey, iVal);
+
+				var tmpTxt = sessionStorage.length + "個のデータが記録されています";
+				disp.innerHTML = tmpTxt;
+			});
+		});
+	</script>
+
+</head>
+<body>
+	<h1>Web Storageのサンプル</h1>
+	キー名:<input type="text" id="inputKey">
+	値:<input type="text" id="inputValue">
+	<br><br>
+	<button id="recBtn">Web Storageに記録</button>
+	<br><br>
+	<div id="disp">ここに情報が出ます.</div>
+</body>
+</html>
