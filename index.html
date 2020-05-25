@@ -23,6 +23,13 @@
 				sessionStorage.setItem(iKey, iVal);
 
 				var tmpTxt = sessionStorage.length + "個のデータが記録されています";
+
+				for (i=0; i<sessionStorage.length;i++){
+					keyName = sessionStorage.key(i);
+					tmpTxt += "<br>" + keyName;
+					tmpTxt += " - " + sessionStorage.getItem(keyName);
+				}
+
 				disp.innerHTML = tmpTxt;
 			});
 		});
